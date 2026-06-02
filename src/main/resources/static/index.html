@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Realtime Chat + Video — Colorful UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Left: Rooms & Users -->
+    <aside class="panel left-panel">
+      <div class="brand">
+        <div class="logo">RC</div>
+        <div>
+          <h1>Realtime Chat</h1>
+          <p class="muted">Video • Rooms • Search</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <label class="label">Your name</label>
+        <div class="row">
+          <input id="username" class="input" placeholder="Enter your name" />
+          <button id="loginBtn" class="btn small">Login</button>
+        </div>
+
+        <label class="label mt">Join / Create Room</label>
+        <div class="row">
+          <input id="roomInput" class="input" placeholder="room1" />
+          <button id="joinRoom" class="btn small primary">Join</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Active Users</h3>
+        <ul id="users" class="users-list"></ul>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Search Messages</h3>
+        <div class="row">
+          <input id="searchQ" class="input" placeholder="search text" />
+          <button id="searchBtn" class="btn small">Search</button>
+        </div>
+        <div id="searchResults" class="search-results"></div>
+      </div>
+
+      <footer class="footer muted">Built with ❤️ • Local Dev</footer>
+    </aside>
+
+    <!-- Center: Chat -->
+    <main class="panel main-panel">
+      <header class="room-header">
+        <div>
+          <h2 id="roomTitle">Not in a room</h2>
+          <p id="roomSub" class="muted">Join or create a room to start chatting</p>
+        </div>
+        <div class="header-actions">
+          <button id="clearChat" class="btn ghost"><i class="fa fa-trash"></i></button>
+        </div>
+      </header>
+
+      <section id="chatBox" class="chat-box empty">
+        <!-- messages appended here -->
+      </section>
+
+      <div class="composer">
+        <input id="msgInput" class="input flex" placeholder="Type a message..." />
+        <button id="sendBtn" class="btn primary">Send</button>
+      </div>
+    </main>
+
+    <!-- Right: Call panel -->
+    <aside class="panel right-panel">
+      <div class="card">
+        <h3 class="card-title">Call</h3>
+        <div class="video-grid">
+          <div class="video-wrap small">
+            <video id="localVideo" autoplay playsinline muted></video>
+            <div class="video-label">You</div>
+          </div>
+
+          <!-- Container for one or many remote videos -->
+          <div id="remoteVideos" class="video-remote-list">
+            <!-- remote video elements will be created here dynamically -->
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="startCall" class="btn primary full"><i class="fa fa-video"></i> Start Call</button>
+          <button id="hangup" class="btn danger full"><i class="fa fa-phone-slash"></i> Hangup</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Help</h3>
+        <ul class="muted small">
+          <li>Use an Incognito window for second user</li>
+          <li>Allow camera & mic when prompted</li>
+          <li>Room names are created dynamically</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+  <script src="/chat.js"></script>
+</body>
+</html>

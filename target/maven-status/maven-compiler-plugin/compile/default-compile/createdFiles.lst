@@ -1,0 +1,10 @@
+com\example\realtimechat\model\SignalMessage.class
+com\example\realtimechat\controller\ChatController.class
+com\example\realtimechat\controller\SignalingController.class
+com\example\realtimechat\service\MessageService.class
+com\example\realtimechat\service\ChatMessageRepository.class
+com\example\realtimechat\Application.class
+com\example\realtimechat\config\WebSocketConfig.class
+com\example\realtimechat\model\UserStatus.class
+com\example\realtimechat\model\ChatMessage.class
+com\example\realtimechat\service\UserService.class
